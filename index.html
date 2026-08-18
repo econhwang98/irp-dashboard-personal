@@ -4264,8 +4264,8 @@ function etfPanel(V, noData) {
         fmt: (r) => {
           const f = fundLinkOf(r.name);
           const h = K.sortHoldings(r.holdings || []);
-          return ed('<button class="btn sm" data-lt-fetch="' + r.id + '">조회</button> ' +
-            '<button class="btn sm" data-lt-edit="' + r.id + '">입력</button>' +
+          return '<button class="btn sm" data-lt-fetch="' + r.id + '">조회</button> ' +
+            ed('<button class="btn sm" data-lt-edit="' + r.id + '">입력</button>' +
             (h.length ? ' <button class="btn sm dgr" data-lt-clear="' + r.id + '">지움</button>' : '')) +
             (f ? ' <a class="btn sm" href="' + f.url + '" target="_blank" rel="noopener">공시↗</a>' : '');
         } },
