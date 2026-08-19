@@ -1121,7 +1121,7 @@ const Store = {
       tradeLog: s.tradeLog,
       scenario: { scenario: 'base', reinvestRate: 0, extraContribution: 0, withdrawal: 0, livingCost: 3000000, startYear: 2026, endYear: 2050, excelMonthlyMode: false },
       settings: { theme: 'light',
-        proxyUrl: (VIEWER_MODE && typeof BUILD_META !== 'undefined' && BUILD_META && BUILD_META.syncUrl) ? (BUILD_META.syncUrl + '/api/prices?codes={codes}') : '',
+        proxyUrl: (VIEWER_MODE && typeof BUILD_META !== 'undefined' && BUILD_META && BUILD_META.syncUrl) ? (BUILD_META.syncUrl + '/api/price?codes={codes}') : '',
         autoRefresh: false, baseDateMode: 'today', baseDate: K.todayISO(),
         dividendCashBasis: 'confirmed', weightBase: 'assets',
         syncEnabled: !!(VIEWER_MODE && typeof BUILD_META !== 'undefined' && BUILD_META && BUILD_META.sync),
@@ -2634,9 +2634,9 @@ const Price = {
   candidates() {
     const c = [];
     if (/^https?:$/.test(location.protocol) && location.origin && location.origin !== 'null') {
-      c.push(location.origin + '/api/prices?codes={codes}');   // 같은 서버에서 열린 경우 (권장 경로)
+      c.push(location.origin + '/api/price?codes={codes}');   // 같은 서버에서 열린 경우 (권장 경로)
     }
-    ['http://127.0.0.1:8787', 'http://localhost:8787'].forEach((b) => c.push(b + '/api/prices?codes={codes}'));
+    ['http://127.0.0.1:8787', 'http://localhost:8787'].forEach((b) => c.push(b + '/api/price?codes={codes}'));
     return c;
   },
   caps: null,
